@@ -5,120 +5,162 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teresa &amp; Jorge — Nos Casamos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Petit+Formal+Script&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F6F1E7;
-    --sage:#46563C;
-    --sage-soft:#8C9A7C;
-    --gold:#B08D57;
-    --ink:#2B2A25;
-    --blush:#EAE1D2;
-    --line: rgba(43,42,37,0.15);
+    --cream:#F8F2E7;
+    --paper:#F1E6D4;
+    --terracotta:#C19A6B;
+    --wine:#8B6B43;
+    --blush:#E4D3B8;
+    --ink:#2E2620;
+    --line: rgba(46,38,32,0.15);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{
-    background:var(--cream);
+    background:
+      radial-gradient(ellipse at top, rgba(193,154,107,0.08), transparent 60%),
+      var(--cream);
     color:var(--ink);
     font-family:'Jost', sans-serif;
     font-weight:300;
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:560px; margin:0 auto; padding:0 24px;}
+  .script{font-family:'Petit Formal Script', cursive; font-weight:400;}
+
+  /* ---------- RIBBON (signature element) ---------- */
+  .ribbon-wrap{display:flex; justify-content:center; margin-bottom:28px;}
+  .ribbon{
+    position:relative;
+    display:inline-block;
+    background:var(--wine);
+    color:var(--cream);
+    padding:10px 30px;
+    font-size:11px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .ribbon::before, .ribbon::after{
+    content:"";
+    position:absolute; top:0; width:0; height:0;
+    border-top:18px solid var(--wine);
+    border-bottom:18px solid var(--wine);
+  }
+  .ribbon::before{ left:-13px; border-left:13px solid transparent; }
+  .ribbon::after{ right:-13px; border-right:13px solid transparent; }
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height:92vh;
+    min-height:94vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:60px 24px;
-    position:relative;
+    padding:70px 24px 50px;
     opacity:0;
-    animation:fadeIn 1.4s ease forwards;
+    animation:fadeIn 1.3s ease forwards;
   }
   @keyframes fadeIn{ to{opacity:1;} }
 
+  .photo-stage{ position:relative; margin:60px 0 70px; }
   .photo-frame{
-    width:min(240px, 62vw);
-    padding:8px;
+    position:relative;
+    z-index:1;
+    width:min(250px, 64vw);
+    padding:9px;
     background:#fff;
-    border:1px solid var(--gold);
-    border-radius:50% 50% 6px 6px / 40% 40% 6px 6px;
-    box-shadow:0 10px 28px rgba(43,42,37,0.18);
-    margin-bottom:24px;
+    border:1px solid var(--blush);
+    border-radius:130px 130px 8px 8px;
+    box-shadow:0 14px 34px rgba(139,107,67,0.18);
   }
   .photo-frame img{
     width:100%;
-    height:min(300px, 78vw);
+    height:min(310px, 80vw);
     object-fit:cover;
     object-position:center 25%;
-    border-radius:50% 50% 4px 4px / 40% 40% 4px 4px;
+    border-radius:122px 122px 4px 4px;
     display:block;
+  }
+  .seal{
+    position:absolute;
+    z-index:2;
+    right:-14px; bottom:14px;
+    width:78px; height:78px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #D4B48A, var(--wine) 70%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 14px rgba(139,107,67,0.35), inset 0 0 0 1px rgba(255,255,255,0.15);
+    transform:rotate(-8deg);
+  }
+  .seal span{
+    font-family:'Petit Formal Script', cursive;
+    color:var(--cream);
+    font-size:26px;
   }
 
   .eyebrow{
     letter-spacing:0.35em;
     font-size:11px;
     text-transform:uppercase;
-    color:var(--sage);
-    margin-bottom:18px;
+    color:var(--terracotta);
+    margin-bottom:16px;
   }
   .names{
-    font-family:'Cormorant Garamond', serif;
-    font-size:clamp(42px, 11vw, 68px);
-    font-weight:500;
-    line-height:1.05;
+    font-family:'Playfair Display', serif;
+    font-size:clamp(40px, 10.5vw, 62px);
+    font-weight:600;
+    line-height:1.08;
     color:var(--ink);
   }
   .amp{
     display:block;
-    font-style:italic;
-    color:var(--gold);
-    font-size:0.55em;
-    margin:6px 0;
+    font-family:'Petit Formal Script', cursive;
+    color:var(--terracotta);
+    font-size:0.6em;
+    font-weight:400;
+    margin:2px 0;
   }
   .hero-date{
-    margin-top:22px;
-    font-family:'Cormorant Garamond', serif;
-    font-size:22px;
-    letter-spacing:0.08em;
-    color:var(--sage);
+    margin-top:20px;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:21px;
+    letter-spacing:0.03em;
+    color:var(--wine);
   }
   .hero-sub{
     margin-top:6px;
     font-size:13px;
-    letter-spacing:0.05em;
-    color:#6b6a62;
+    letter-spacing:0.04em;
+    color:#7a7168;
   }
 
-  /* ---------- DIVIDER ---------- */
-  .divider{
-    display:flex; align-items:center; gap:14px;
-    margin:8px auto 0; width:100%; max-width:180px;
+  /* ---------- SPRIG (rose line-art accent) ---------- */
+  .sprig{ width:46px; height:46px; opacity:0.85; }
+  .sprig path, .sprig circle{ stroke:var(--terracotta); fill:none; stroke-width:1.3; }
+
+  /* ---------- MARCO FLORAL ---------- */
+  .frame-deco{
+    position:absolute;
+    width:min(340px, 92vw);
+    left:50%; top:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+    pointer-events:none;
   }
-  .divider .l{flex:1; height:1px; background:var(--line);}
-  .divider .d{width:5px; height:5px; border-radius:50%; background:var(--gold);}
 
   /* ---------- SECTIONS ---------- */
-  section{padding:64px 0;}
-  .section-title{
-    font-family:'Cormorant Garamond', serif;
-    font-size:32px;
-    font-style:italic;
-    text-align:center;
-    color:var(--ink);
-    margin-bottom:10px;
-  }
+  section{padding:56px 0;}
   .section-lead{
     text-align:center;
     font-size:14px;
-    color:#6b6a62;
+    color:#7a7168;
     max-width:380px;
-    margin:0 auto 40px;
+    margin:0 auto 36px;
   }
 
   /* ---------- DETAIL CARDS ---------- */
@@ -126,114 +168,134 @@
   .card{
     background:#fff;
     border:1px solid var(--line);
-    border-radius:2px;
-    padding:28px 26px;
-    position:relative;
-  }
-  .card::before{
-    content:"";
-    position:absolute; left:0; top:0; bottom:0; width:3px;
-    background:var(--sage);
+    border-radius:4px;
+    padding:30px 26px;
+    text-align:center;
+    box-shadow:0 10px 26px rgba(46,38,32,0.06);
   }
   .card-label{
-    font-size:11px; letter-spacing:0.25em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:10px;
+    font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--terracotta); margin-bottom:8px;
   }
   .card-title{
-    font-family:'Cormorant Garamond', serif;
-    font-size:24px; margin-bottom:14px;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:24px; margin-bottom:16px;
+    color:var(--wine);
   }
-  .card-row{display:flex; gap:10px; font-size:14px; margin-bottom:6px; color:var(--ink);}
-  .card-row span.k{color:#8a8879; min-width:64px;}
+  .card-row{font-size:14px; margin-bottom:4px; color:var(--ink);}
   .maps-link{
-    display:inline-block; margin-top:12px; font-size:12px;
-    letter-spacing:0.08em; text-transform:uppercase; color:var(--sage);
-    text-decoration:none; border-bottom:1px solid var(--sage); padding-bottom:2px;
+    display:inline-block; margin-top:14px; font-size:12px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--wine);
+    text-decoration:none; border-bottom:1px solid var(--wine); padding-bottom:2px;
   }
 
+  /* ---------- DRESS CODE ---------- */
+  .dress-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:30px 26px;
+    text-align:center;
+    margin-top:16px;
+  }
+  .dress-card .card-title{ margin-bottom:8px; }
+  .dress-card p{ font-size:13px; color:#5c554d; }
+
   /* ---------- COUNTDOWN ---------- */
-  .countdown{display:flex; justify-content:center; gap:22px; margin-top:8px;}
-  .cd-item{text-align:center;}
+  .countdown-box{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:26px 10px;
+    display:flex; justify-content:center; gap:0;
+  }
+  .countdown{ display:flex; width:100%; max-width:320px; }
+  .cd-item{ text-align:center; flex:1; position:relative; }
+  .cd-item + .cd-item::before{
+    content:""; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--line);
+  }
   .cd-num{
-    font-family:'Cormorant Garamond', serif; font-size:38px; color:var(--sage);
+    font-family:'Playfair Display', serif; font-size:34px; color:var(--wine);
     font-weight:600;
   }
-  .cd-label{font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#8a8879;}
+  .cd-label{font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#8a8171;}
 
   /* ---------- RSVP ---------- */
   .rsvp-box{
-    background:var(--sage);
+    background:var(--wine);
     color:var(--cream);
-    padding:40px 20px;
-    border-radius:2px;
+    padding:44px 20px;
+    border-radius:4px;
     text-align:center;
   }
-  .rsvp-box .section-title{color:var(--cream);}
-  .rsvp-box .section-lead{color:#d9e0d2;}
+  .rsvp-box .ribbon{ background:var(--terracotta); }
+  .rsvp-box .ribbon::before, .rsvp-box .ribbon::after{ border-top-color:var(--terracotta); border-bottom-color:var(--terracotta); }
+  .rsvp-box .section-lead{color:#ead9c0;}
   .form-embed{
-    margin-top:16px;
+    margin-top:18px;
     background:#fff;
-    border-radius:2px;
+    border-radius:4px;
     overflow:hidden;
   }
-  .form-embed iframe{
-    width:100%;
-    height:1100px;
-    border:none;
-    display:block;
-  }
-  .form-warning{
-    background:rgba(246,241,231,0.12);
-    border:1px dashed rgba(246,241,231,0.5);
-    padding:24px;
-    font-size:13px;
-    line-height:1.7;
-    text-align:left;
-  }
-  .form-warning code{
-    background:rgba(0,0,0,0.25);
-    padding:2px 6px;
-    border-radius:2px;
-    font-size:12px;
-  }
+  .form-embed iframe{ width:100%; height:1100px; border:none; display:block; }
 
   footer{
-    text-align:center; padding:50px 24px 70px; font-size:12px; color:#8a8879;
+    text-align:center; padding:50px 24px 70px; font-size:12px; color:#8a8171;
   }
-  footer .fname{font-family:'Cormorant Garamond', serif; font-style:italic; font-size:18px; color:var(--sage); margin-bottom:6px;}
+  footer .fname{font-family:'Petit Formal Script', cursive; font-size:26px; color:var(--wine); margin-bottom:8px;}
+
+  /* ---------- MUSIC TOGGLE ---------- */
+  #musicToggle{
+    position:fixed; bottom:20px; right:20px; z-index:100;
+    width:48px; height:48px; border-radius:50%;
+    background:var(--wine); color:var(--cream); border:none;
+    font-size:16px; cursor:pointer;
+    box-shadow:0 6px 16px rgba(46,38,32,0.3);
+  }
 </style>
 </head>
 <body>
+
+<audio id="bgMusic" src="musica.mp3" loop></audio>
 
 <div class="wrap">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="photo-frame">
-      <img src="foto.jpg" alt="Teresa y Jorge">
+    <div class="photo-stage">
+      <img class="frame-deco" src="marco.jpg" alt="">
+      <div class="photo-frame">
+        <img src="foto.jpg" alt="Teresa y Jorge">
+      </div>
+      <div class="seal"><span>T&amp;J</span></div>
     </div>
     <div class="eyebrow">Nos casamos</div>
     <h1 class="names">Teresa<span class="amp">&amp;</span>Jorge</h1>
-    <div class="divider"><div class="l"></div><div class="d"></div><div class="l"></div></div>
-    <div class="hero-date">Sábado 12 de setiembre, 2026</div>
+    <div class="hero-date">12 de setiembre, 2026</div>
     <div class="hero-sub">La Molina, Lima &middot; Te esperamos para celebrar con nosotros</div>
   </section>
 
   <!-- DETALLES -->
   <section id="detalles">
-    <div class="section-title">Detalles</div>
+    <div class="ribbon-wrap"><div class="ribbon">Detalles</div></div>
     <div class="section-lead">Estos son los datos de la celebración. Guárdalos para el gran día.</div>
     <div class="cards">
       <div class="card">
-        <div class="card-label">Celebración</div>
+        <div class="card-label" style="margin-top:0;">Celebración</div>
         <div class="card-title">12:30 p.m.</div>
-        <div class="card-row"><span class="k">Dirección</span><span>Calle Las Camelias 124, Urb. Camacho, La Molina</span></div>
+        <div class="card-row">Calle Las Camelias 124, Urb. Camacho, La Molina</div>
         <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Las+Camelias+124+Urb+Camacho+La+Molina" target="_blank">Ver ubicación →</a>
       </div>
     </div>
 
-    <div class="divider" style="margin-top:44px;"><div class="l"></div><div class="d"></div><div class="l"></div></div>
-    <div style="margin-top:30px;">
+    <div class="dress-card">
+      <div class="card-label">Dress code</div>
+      <div class="card-title">Formal · Elegante</div>
+      <p>Caballeros de terno, damas con vestido largo.</p>
+    </div>
+
+    <div class="ribbon-wrap" style="margin-top:48px;"><div class="ribbon" style="background:var(--terracotta);">Faltan</div></div>
+    <div class="countdown-box">
       <div class="countdown" id="countdown"></div>
     </div>
   </section>
@@ -241,16 +303,13 @@
   <!-- RSVP -->
   <section id="rsvp">
     <div class="rsvp-box">
-      <div class="section-title">Confirma tu asistencia</div>
-      <div class="section-lead">Por favor confírmanos antes del 1 de octubre de 2026.</div>
+      <div class="ribbon-wrap">
+        <div class="ribbon">Confirmar asistencia</div>
+      </div>
+      <div class="section-lead">Haznos saber si podremos contar contigo — por favor confirma antes del 1 de setiembre de 2026.</div>
 
-      <div class="form-embed" id="formEmbed">
-        <!--
-          PASO PENDIENTE: reemplaza GOOGLE_FORM_EMBED_URL_AQUI por el link
-          de "insertar" (embed) de tu Google Form. Ver guía paso a paso
-          que te dio Claude para obtener este link.
-        -->
-        <iframe id="rsvpFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSdUGPa5zBiYczAhHA19x7Rz2FoM6ITw-atgqOM1_1xeU43wHg/viewform?embedded=true" loading="lazy">Cargando formulario…</iframe>
+      <div class="form-embed">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdUGPa5zBiYczAhHA19x7Rz2FoM6ITw-atgqOM1_1xeU43wHg/viewform?embedded=true" loading="lazy">Cargando formulario…</iframe>
       </div>
     </div>
   </section>
@@ -261,6 +320,8 @@
   </footer>
 
 </div>
+
+<button id="musicToggle">♪</button>
 
 <script>
   // ---------- Countdown ----------
@@ -278,7 +339,16 @@
   }
   renderCountdown();
   setInterval(renderCountdown, 60000);
-  
+
+  // ---------- Music toggle ----------
+  const bgMusic = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  let playing = false;
+  musicToggle.addEventListener('click', () => {
+    if (playing) { bgMusic.pause(); musicToggle.textContent = '♪'; }
+    else { bgMusic.play().catch(()=>{}); musicToggle.textContent = '❚❚'; }
+    playing = !playing;
+  });
 </script>
 
 </body>
