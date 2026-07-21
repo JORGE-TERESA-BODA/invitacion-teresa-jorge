@@ -278,15 +278,7 @@
   }
   renderCountdown();
   setInterval(renderCountdown, 60000);
-
-  // ---------- Aviso si el formulario aún no fue configurado ----------
-  const frame = document.getElementById('rsvpFrame');
-  if(frame.getAttribute('src') === 'https://docs.google.com/forms/d/e/1FAIpQLSdUGPa5zBiYczAhHA19x7Rz2FoM6ITw-atgqOM1_1xeU43wHg/viewform?embedded=true'){
-    document.getElementById('formEmbed').outerHTML =
-      '<div class="form-warning">Aún falta conectar el formulario de confirmación. ' +
-      'Reemplaza <code>GOOGLE_FORM_EMBED_URL_AQUI</code> en <code>index.html</code> ' +
-      'por el link de inserción (embed) de tu Google Form. Sigue la guía paso a paso.</div>';
-  }
+  
 </script>
 
 </body>
