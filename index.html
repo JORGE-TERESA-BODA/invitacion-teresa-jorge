@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Alex+Brush&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Alex+Brush&family=ADLaM+Display&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#FAF6EC;
@@ -48,7 +48,7 @@
   .hero-photo img{
     width:100%; height:100%;
     object-fit:cover;
-    object-position:center 25%;
+    object-position:center 12%;
     display:block;
   }
   .hero-photo::after{
@@ -85,14 +85,14 @@
 
   .corner{
     position:absolute;
-    width:150px;
+    width:110px;
     top:0; bottom:0;
     z-index:0;
     opacity:0.98;
   }
-  .corner.tl{ left:0; }
-  .corner.br{ right:0; }
-  .card-content{ position:relative; z-index:1; }
+  .corner.tl{ left:-18px; }
+  .corner.br{ right:-18px; }
+  .card-content{ position:relative; z-index:1; max-width:290px; margin:0 auto; }
   .leaf{ fill:var(--sage); stroke:var(--sage-dark); stroke-width:0.5; }
   .leaf.pale{ fill:#A9B48F; }
   .flower-petal{ fill:#fff; stroke:var(--sage); stroke-width:0.6; }
@@ -121,10 +121,10 @@
     color:var(--ink); font-weight:600; margin-bottom:14px;
   }
   .big-date{
-    font-family:'Playfair Display', serif;
-    font-size:34px; font-weight:700; line-height:1.15;
+    font-family:'ADLaM Display', 'Playfair Display', serif;
+    font-size:30px; font-weight:400; line-height:1.25;
     color:var(--sage-dark);
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
   .big-time{
     font-size:15px; letter-spacing:0.05em; color:var(--ink); margin-bottom:26px;
@@ -139,9 +139,15 @@
     margin:0 auto 22px;
     box-shadow:0 6px 16px rgba(58,50,41,0.1);
   }
-  .monogram span{
+  .monogram span.mono-t, .monogram span.mono-j{
     font-family:'Alex Brush', cursive;
-    font-size:34px; color:var(--gold);
+    font-size:30px; color:var(--gold); line-height:1;
+  }
+  .monogram span.mono-amp{
+    font-family:'Alex Brush', cursive;
+    font-size:18px; color:var(--gold); line-height:1;
+    margin:0 1px; display:inline-flex; align-items:center; justify-content:center;
+    transform:translateY(1px);
   }
 
   /* ---------- COUNTDOWN ---------- */
@@ -158,8 +164,8 @@
   }
 
   /* ---------- LOCATION ---------- */
-  .venue-name{ font-size:18px; font-weight:600; letter-spacing:0.04em; margin-bottom:6px; }
-  .venue-addr{ font-size:14px; color:#5c554a; margin-bottom:24px; }
+  .venue-name{ font-size:19px; font-weight:600; letter-spacing:0.04em; margin-bottom:6px; }
+  .venue-addr{ font-size:15px; color:#5c554a; margin-bottom:24px; }
   .pin-btn{
     display:inline-flex; align-items:center; gap:8px;
     border:1.5px solid var(--sage-dark);
@@ -178,7 +184,7 @@
   .rsvp-from{ font-size:13px; color:var(--ink); margin-bottom:26px; }
   .rsvp-photo{
     width:150px; height:150px; border-radius:50%;
-    object-fit:cover; object-position:center 25%;
+    object-fit:cover; object-position:center 18%;
     border:4px solid #fff;
     box-shadow:0 10px 26px rgba(58,50,41,0.2);
     margin:0 auto 22px;
@@ -379,9 +385,9 @@
     <svg class="corner tl" viewBox="0 0 140 620" preserveAspectRatio="xMinYMin slice"><use href="#cornerBranch"/></svg>
 
     <div class="card-content">
-      <div class="eyebrow">Te invitamos a celebrar<br>nuestra boda</div>
-      <div class="names-script">Teresa<span class="amp">&amp;</span>Jorge</div>
-      <div class="lead">Nos da mucha ilusión compartir este día tan especial contigo.</div>
+      <div class="eyebrow" style="font-size:14px;">Te invitamos a celebrar<br>nuestra boda</div>
+      <div class="names-script" style="font-weight:700;">Teresa<span class="amp">&amp;</span>Jorge</div>
+      <div class="lead" style="font-weight:700;">Nos da mucha ilusión compartir este día tan especial contigo.</div>
     </div>
   </section>
 
@@ -394,7 +400,7 @@
       <div class="caption">Te esperamos el día</div>
       <div class="big-date">12 de setiembre<br>2026</div>
       <div class="big-time">12:30 p.m.</div>
-      <div class="monogram"><span>T&amp;J</span></div>
+      <div class="monogram"><span class="mono-t">T</span><span class="mono-amp">&amp;</span><span class="mono-j">J</span></div>
       <div class="countdown" id="countdown"></div>
       <div class="tagline">Falta muy poco para el gran día</div>
     </div>
@@ -406,8 +412,8 @@
     <svg class="corner br" viewBox="0 0 140 620" preserveAspectRatio="xMaxYMax slice"><use href="#cornerBranchB"/></svg>
 
     <div class="card-content">
-      <div class="monogram"><span>T&amp;J</span></div>
-      <div class="caption">Te esperamos en:</div>
+      <div class="monogram"><span class="mono-t">T</span><span class="mono-amp">&amp;</span><span class="mono-j">J</span></div>
+      <div class="caption" style="font-size:13px;">Te esperamos en:</div>
       <div class="venue-name">Calle Las Camelias 124</div>
       <div class="venue-addr">Urb. Camacho, La Molina</div>
       <a class="pin-btn" href="https://www.google.com/maps/search/?api=1&query=Calle+Las+Camelias+124+Urb+Camacho+La+Molina" target="_blank">
@@ -423,9 +429,9 @@
     <svg class="corner br" viewBox="0 0 140 620" preserveAspectRatio="xMaxYMax slice"><use href="#cornerBranchB"/></svg>
 
     <div class="card-content">
-      <div class="monogram"><span>T&amp;J</span></div>
-      <div class="caption">Dress code</div>
-      <div class="dress-text">Queremos que estés cómodo y radiante.<br><b>Vestimenta: Sport Elegante.</b></div>
+      <div class="monogram"><span class="mono-t">T</span><span class="mono-amp">&amp;</span><span class="mono-j">J</span></div>
+      <div class="caption" style="font-size:13px;">Dress code</div>
+      <div class="dress-text">Queremos que disfrutes este día luciendo elegante y cómodo.<br><b>Vestimenta: Sport Elegante.</b></div>
     </div>
   </section>
 
@@ -435,19 +441,19 @@
     <svg class="corner br" viewBox="0 0 140 620" preserveAspectRatio="xMaxYMax slice"><use href="#cornerBranchB"/></svg>
 
     <div class="card-content">
-      <div class="monogram"><span>T&amp;J</span></div>
-      <div class="caption">Confirma tu asistencia</div>
-      <div class="rsvp-note">Agradecemos confirmar tu asistencia con anticipación.</div>
-      <div class="rsvp-from">Con cariño:<br>Teresa y Jorge</div>
-      <img class="rsvp-photo" src="foto.jpg" alt="Teresa y Jorge">
+      <div class="monogram"><span class="mono-t">T</span><span class="mono-amp">&amp;</span><span class="mono-j">J</span></div>
+      <div class="caption" style="font-size:14px;">Confirma tu asistencia</div>
+      <div class="rsvp-note" style="font-size:15px;">Agradecemos confirmar tu asistencia con anticipación.</div>
+      <div class="rsvp-from" style="font-size:15px;">Con cariño:<br>Teresa y Jorge</div>
+      <img class="rsvp-photo" src="foto-rsvp.jpg" alt="Teresa y Jorge">
       <a class="rsvp-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdUGPa5zBiYczAhHA19x7Rz2FoM6ITw-atgqOM1_1xeU43wHg/viewform" target="_blank">Confirma tu asistencia aquí</a>
-      <div class="rsvp-deadline">Por favor confirma antes del 1 de setiembre de 2026.</div>
+      <div class="rsvp-deadline" style="font-size:14px; font-weight:700;">Por favor confirma antes del 1 de setiembre de 2026.</div>
     </div>
   </section>
 
   <footer>
-    <div class="fname">Teresa &amp; Jorge</div>
-    Con todo nuestro cariño, gracias por ser parte de este día.
+    <div class="fname" style="font-size:30px; font-weight:700;">Teresa &amp; Jorge</div>
+    <span style="font-size:14px;">Con todo nuestro cariño, gracias por ser parte de este día.</span>
   </footer>
 
 </div>
